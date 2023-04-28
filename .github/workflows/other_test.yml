@@ -1,0 +1,39 @@
+name: Test Process
+
+on:
+  push:
+    branches-ignore:
+      - 'main'
+      - 'master'
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        mongodb-version: ['4.4', '5.0', '6.0']
+        java: [ '11', '17' ]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK ${{ matrix.Java }}
+      uses: actions/setup-java@v3.3.0
+      with:
+        distribution: 'corretto'
+        java-version: ${{ matrix.java }}
+    - name: Setup TimeZone
+      uses: szenius/set-timezone@v1.2
+      with:
+        timezoneLinux: "Europe/Berlin"
+        timezoneMacos: "Europe/Berlin"
+        timezoneWindows: "W. Europe Standard Time"
+    - name: Start MongoDB ${{ matrix.mongodb-version }}
+      uses: MongoCamp/mongodb-github-action@1.2.0
+      with:
+        mongodb-version: ${{ matrix.mongodb-version }}
+        mongodb-port: 4711
+    - name: Run tests
+      run: |
+        timedatectl
+        sbt +test

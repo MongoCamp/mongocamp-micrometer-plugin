@@ -1,0 +1,23 @@
+{
+  "hash": "4c92842b",
+  "browserHash": "79050d92",
+  "optimized": {
+    "vue": {
+      "src": "../../../../node_modules/.pnpm/vue@3.2.47/node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "file": "vue.js",
+      "fileHash": "7ad1cbda",
+      "needsInterop": false
+    },
+    "anu-vue": {
+      "src": "../../../../node_modules/.pnpm/anu-vue@0.13.1_@unocss+reset@0.41.2_@vueuse+core@10.0.2_vue-router@4.1.6/node_modules/anu-vue/dist/anu-vue.js",
+      "file": "anu-vue.js",
+      "fileHash": "22b35865",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-LZPJ5JBW": {
+      "file": "chunk-LZPJ5JBW.js"
+    }
+  }
+}
