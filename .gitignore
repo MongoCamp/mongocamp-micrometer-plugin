@@ -22,6 +22,7 @@ sbt-cache/*
 
 /.pnpm-debug.log
 /node_modules/
+/docs/.vitepress/cache/
 /docs/.vitepress/dist/
 /docs/rest/.openapi-generator-ignore
 /docs/rest/.openapi-generator/

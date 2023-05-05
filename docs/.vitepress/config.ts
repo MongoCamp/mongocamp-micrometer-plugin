@@ -54,7 +54,8 @@ function nav() {
         {
             text: 'Documentation',
             items: [
-                {text: 'Getting Started', link: '/documentation/getting-started'}
+                {text: 'Getting Started', link: '/documentation/getting-started'},
+                {text: 'Configuration', link: '/documentation/configuration'}
             ]
         },
         {
@@ -75,6 +76,10 @@ function sidebarDocumentation() {
         {
             text: 'Getting Started',
             link: '/documentation/getting-started'
+        },
+        {
+            text: 'Configuration',
+            link: '/documentation/configuration'
         }
     ]
 }

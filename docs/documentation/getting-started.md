@@ -1,15 +1,10 @@
 # Getting Started
 
-A library to monitor your MongoDB and push all your [Micrometer](https://micrometer.io/) Stats to an Mongodb.
+This is Plugin adds Micrometer Functionality to [MongoCamp Server](https://server.mongocamp.dev/). 
+So other Plugins can use Micrometer or you can get your Micrometer Statistics to Database or call them by HTTP. 
 
 ## Dependency Setup
-Support Scala 2.12 and Scala 2.13.
+Add this to your [Plugin Modules](https://server.mongocamp.dev/config/properties/plugins-module.html)
 <DependencyGroup/>
 
-## Binder
-Micrometer Core supports some [build in Binder](https://github.com/micrometer-metrics/micrometer/tree/main/micrometer-core/src/main/java/io/micrometer/core/instrument/binder/mongodb) for MongoDb Monitoring. But when you want more statistics over other MongoDb Statistics you need individual bindings. Some Binders you can find in our [binding collection](binder/).
-
-## Registry
-Possibility to persist your Micrometer Stats to your MongoDB.
-
-[Apache 2](https://github.com/MongoCamp/micrometer-mongodb/blob/master/LICENSE)
+[Apache 2](https://github.com/MongoCamp/mongocamp-micrometer-plugin/main/LICENSE)
