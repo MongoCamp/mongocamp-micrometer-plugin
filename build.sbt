@@ -10,7 +10,7 @@ scalaVersion := "2.13.10"
 
 libraryDependencies += "dev.mongocamp" %% "micrometer-mongodb" % "0.6.0"
 
-libraryDependencies += "dev.mongocamp" %% "mongocamp-server" % "1.4.2-SNAPSHOT"
+libraryDependencies += "dev.mongocamp" %% "mongocamp-server" % "1.4.2"
 
 publishTo := Some("GitHub Package Registry".at("https://maven.pkg.github.com/mongocamp/mongocamp-sample-plugin/"))
 
