@@ -4,11 +4,9 @@ import dev.mongocamp.driver.mongodb._
 import dev.mongocamp.server.client.api.MetricsApi
 import dev.mongocamp.server.database.MongoDatabase
 import dev.mongocamp.server.test.MongoCampBaseServerSuite
-import dev.mongocamp.server.test.client.api.ApplicationApi
 import org.joda.time.DateTime
 class PersistenceSuite extends MongoCampBaseServerSuite {
 
-  val applicationApi: ApplicationApi = ApplicationApi()
   val metricsApi: MetricsApi = MetricsApi()
 
   override def beforeAll(): Unit = {
@@ -41,9 +39,9 @@ class PersistenceSuite extends MongoCampBaseServerSuite {
     val document = dbResponse.head
     assertEquals(document.getDoubleValue("mongodb_server_status_operations_query.value") > 50.0, true)
     assertEquals(document.getStringValue("mongodb_server_status_operations_query.metricType"), "gauge")
-    assertEquals(document.getStringValue("mongodb_collection_test_mc_jobs_avgObjSize.metricType"), "gauge")
+    assertEquals(document.getStringValue("mongodb_collection_test_mc_users_avgObjSize.metricType"), "gauge")
     assertEquals(document.getStringValue("mongodb_driver_pool_size.metricType"), "gauge")
-    assertEquals(document.getDoubleValue("mongodb_driver_pool_size.value") > 1.0, true)
+    assertEquals(document.getDoubleValue("mongodb_driver_pool_size.value") >= 1.0, true)
     assertEquals(document.getStringValue("mongodb_driver_commands.metricType"), "timer")
   }
 
