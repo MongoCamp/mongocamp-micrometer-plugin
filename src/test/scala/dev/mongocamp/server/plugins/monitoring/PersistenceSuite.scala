@@ -28,7 +28,8 @@ class PersistenceSuite extends MongoCampBaseServerSuite {
     val dbResponse = MongoDatabase.databaseProvider.dao("monitoring_system").find(sort = Map("date" -> -1)).results()
     assertEquals(dbResponse.nonEmpty, true)
     val document = dbResponse.head
-    assertEquals(document.getDoubleValue("process_cpu_usage.value") > 0.0, true)
+    assertEquals(document.getDoubleValue("process_files_open.value") > 0.0, true)
+    assertEquals(document.getDoubleValue("process_files_open.value") > 5.0, true)
     assertEquals(document.getStringValue("process_cpu_usage.metricType"), "gauge")
     assertEquals(document.getStringValue("disk_total.metricType"), "gauge")
   }

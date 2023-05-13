@@ -8,7 +8,7 @@ organization := json.stringValue("organization")
 
 scalaVersion := "2.13.10"
 
-libraryDependencies += "dev.mongocamp" %% "micrometer-mongodb" % "0.6.0"
+libraryDependencies += "dev.mongocamp" %% "micrometer-mongodb" % "0.6.1"
 
 libraryDependencies += "dev.mongocamp" %% "mongocamp-server" % "1.4.2"
 
