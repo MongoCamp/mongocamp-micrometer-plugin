@@ -9,7 +9,7 @@ class PersistenceSuite extends MongoCampBaseServerSuite {
 
   val metricsApi: MetricsApi = MetricsApi()
 
-  override def beforeAll(): Unit = {
+  override def beforeEach(context: BeforeEach): Unit = {
     val startTime = new DateTime()
     while (startTime.plusSeconds(15).isBeforeNow) {
       // wait for collect metrics
