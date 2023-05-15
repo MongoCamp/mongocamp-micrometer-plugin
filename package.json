@@ -1,6 +1,6 @@
 {
   "name" : "mongocamp-micrometer-plugin",
-  "version" : "0.5.0",
+  "version" : "0.5.1.snapshot",
   "organization" : "dev.mongocamp",
   "description" : "MongoCamp Micrometer Plugin | A plugin for MongoCamp Server",
   "scripts" : {
