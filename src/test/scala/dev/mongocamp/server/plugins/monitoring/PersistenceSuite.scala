@@ -4,12 +4,19 @@ import dev.mongocamp.driver.mongodb._
 import dev.mongocamp.server.client.api.MetricsApi
 import dev.mongocamp.server.database.MongoDatabase
 import dev.mongocamp.server.test.MongoCampBaseServerSuite
+import dev.mongocamp.server.test.client.api.InformationApi
 import org.joda.time.DateTime
 class PersistenceSuite extends MongoCampBaseServerSuite {
 
   val metricsApi: MetricsApi = MetricsApi()
+  val informationApi: InformationApi = InformationApi()
 
   override def beforeEach(context: BeforeEach): Unit = {
+    val jvmMetrics = executeRequestToResponse(metricsApi.jvmMetrics("", "", adminBearerToken, "")())
+    val systemMetrics = executeRequestToResponse(metricsApi.systemMetrics("", "", adminBearerToken, "")())
+    val mongoDbMetrics = executeRequestToResponse(metricsApi.mongoDbMetrics("", "", adminBearerToken, "")())
+    val eventMetrics = executeRequestToResponse(metricsApi.eventMetrics("", "", adminBearerToken, "")())
+    val version = executeRequestToResponse(informationApi.version())
     val startTime = new DateTime()
     while (startTime.plusSeconds(15).isBeforeNow) {
       // wait for collect metrics
