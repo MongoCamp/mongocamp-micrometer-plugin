@@ -8,7 +8,7 @@ import dev.mongocamp.server.route.BaseRoute
 import io.circe.generic.auto._
 import sttp.capabilities.WebSockets
 import sttp.capabilities.akka.AkkaStreams
-import sttp.model.{Method, StatusCode}
+import sttp.model.{ Method, StatusCode }
 import sttp.tapir._
 import sttp.tapir.json.circe.jsonBody
 import sttp.tapir.server.ServerEndpoint

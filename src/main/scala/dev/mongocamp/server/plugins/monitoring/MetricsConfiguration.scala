@@ -2,19 +2,18 @@ package dev.mongocamp.server.plugins.monitoring
 
 import io.micrometer.core.instrument.binder.MeterBinder
 import io.micrometer.core.instrument.binder.jvm._
-import io.micrometer.core.instrument.binder.system.{DiskSpaceMetrics, FileDescriptorMetrics, ProcessorMetrics, UptimeMetrics}
-import io.micrometer.core.instrument.{MeterRegistry, Metrics}
+import io.micrometer.core.instrument.binder.system.{ DiskSpaceMetrics, FileDescriptorMetrics, ProcessorMetrics, UptimeMetrics }
+import io.micrometer.core.instrument.{ MeterRegistry, Metrics }
 
 import java.io.File
 import scala.collection.mutable.ArrayBuffer
 
 object MetricsConfiguration {
 
-
-  private lazy val jvmMetricsRegistries: ArrayBuffer[MeterRegistry] = ArrayBuffer()
-  private lazy val systemMetricsRegistries: ArrayBuffer[MeterRegistry] = ArrayBuffer()
+  private lazy val jvmMetricsRegistries: ArrayBuffer[MeterRegistry]     = ArrayBuffer()
+  private lazy val systemMetricsRegistries: ArrayBuffer[MeterRegistry]  = ArrayBuffer()
   private lazy val mongoDbMetricsRegistries: ArrayBuffer[MeterRegistry] = ArrayBuffer()
-  private lazy val eventMetricsRegistries: ArrayBuffer[MeterRegistry] = ArrayBuffer()
+  private lazy val eventMetricsRegistries: ArrayBuffer[MeterRegistry]   = ArrayBuffer()
 
   private lazy val jvmMeterBinder: ArrayBuffer[MeterBinder] = ArrayBuffer(
     new ClassLoaderMetrics(),
@@ -33,7 +32,7 @@ object MetricsConfiguration {
   )
 
   private lazy val mongoDbMeterBinder: ArrayBuffer[MeterBinder] = ArrayBuffer()
-  private lazy val eventMeterBinder: ArrayBuffer[MeterBinder] = ArrayBuffer()
+  private lazy val eventMeterBinder: ArrayBuffer[MeterBinder]   = ArrayBuffer()
 
   def addJvmRegistry(registry: MeterRegistry): Unit = {
     jvmMetricsRegistries += registry
@@ -72,18 +71,10 @@ object MetricsConfiguration {
   def addEventMeterBinder(meterBinder: MeterBinder): Unit = eventMeterBinder += meterBinder
 
   def bindAll(): Unit = {
-    getJvmMetricsRegistries.foreach(r => {
-      jvmMeterBinder.foreach(_.bindTo(r))
-    })
-    getSystemMetricsRegistries.foreach(r => {
-      systemMeterBinder.foreach(_.bindTo(r))
-    })
-    getMongoDbMetricsRegistries.foreach(r => {
-      mongoDbMeterBinder.foreach(_.bindTo(r))
-    })
-    getEventMetricsRegistries.foreach(r => {
-      eventMeterBinder.foreach(_.bindTo(r))
-    })
+    getJvmMetricsRegistries.foreach(r => jvmMeterBinder.foreach(_.bindTo(r)))
+    getSystemMetricsRegistries.foreach(r => systemMeterBinder.foreach(_.bindTo(r)))
+    getMongoDbMetricsRegistries.foreach(r => mongoDbMeterBinder.foreach(_.bindTo(r)))
+    getEventMetricsRegistries.foreach(r => eventMeterBinder.foreach(_.bindTo(r)))
   }
 
 }

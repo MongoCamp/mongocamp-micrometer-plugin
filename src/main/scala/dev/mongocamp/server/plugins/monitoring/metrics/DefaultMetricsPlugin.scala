@@ -2,7 +2,7 @@ package dev.mongocamp.server.plugins.monitoring.metrics
 
 import akka.actor.Props
 import com.typesafe.scalalogging.LazyLogging
-import dev.mongocamp.server.event.{Event, EventSystem}
+import dev.mongocamp.server.event.{ Event, EventSystem }
 import dev.mongocamp.server.plugin.ServerPlugin
 import dev.mongocamp.server.plugins.monitoring.MetricsConfiguration
 import io.micrometer.core.instrument.simple.SimpleMeterRegistry

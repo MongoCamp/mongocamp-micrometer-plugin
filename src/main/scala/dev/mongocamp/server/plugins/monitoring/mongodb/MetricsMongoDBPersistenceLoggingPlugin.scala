@@ -26,7 +26,7 @@ object MetricsMongoDBPersistenceLoggingPlugin extends ServerPlugin with LazyLogg
     ConfigurationService.registerConfig(ConfKeyLoggingEventToMongoDb, MongoCampConfiguration.confTypeBoolean)
 
     val stepDuration = ConfigurationService.getConfigValue[Duration](ConfKeyMicrometerStep)
-    val configMap = Map("step" -> s"${stepDuration.toMillis}ms")
+    val configMap    = Map("step" -> s"${stepDuration.toMillis}ms")
     if (ConfigurationService.getConfigValue[Boolean](ConfKeyLoggingJvmToMongoDb)) {
       MetricsConfiguration.addJvmRegistry(MongoStepMeterRegistry(MongoDatabase.databaseProvider.dao("monitoring_jvm"), configMap))
     }
