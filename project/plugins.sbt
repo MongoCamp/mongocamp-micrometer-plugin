@@ -17,7 +17,7 @@ addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "3.9.18")
 
 addSbtPlugin("com.jsuereth" % "sbt-pgp" % "2.1.1")
 
-addSbtPlugin("com.github.gseitz" % "sbt-release" % "1.0.13")
+addSbtPlugin("com.github.sbt" % "sbt-release" % "1.0.15")
 
 addSbtPlugin("dev.quadstingray" %% "sbt-json" % "0.6.3")
 
@@ -25,4 +25,3 @@ addDependencyTreePlugin
 
 // todo remove as soon as possible
 dependencyOverrides += "org.scala-lang.modules" %% "scala-xml" % "1.2.0"
-
