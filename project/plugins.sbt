@@ -4,7 +4,7 @@ addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.5.0")
 
 addSbtPlugin("org.scoverage" % "sbt-scoverage" % "2.0.7")
 
-addSbtPlugin("com.eed3si9n" % "sbt-buildinfo" % "0.11.0")
+addSbtPlugin("com.eed3si9n" % "sbt-buildinfo" % "0.12.0")
 
 // updates
 
@@ -25,4 +25,3 @@ addDependencyTreePlugin
 
 // todo remove as soon as possible
 dependencyOverrides += "org.scala-lang.modules" %% "scala-xml" % "1.2.0"
-
